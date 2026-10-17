@@ -8,8 +8,7 @@ import { CategoryModalComponent } from '../../shared/components/category-modal/c
   standalone: true,
   imports: [
     CommonModule,
-    NavbarComponent,
-    CategoryModalComponent
+    NavbarComponent
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss'

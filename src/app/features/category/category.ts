@@ -2,11 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from '../../core/models/article.model';
+import { NavbarComponent } from '../../shared/components/navbar/navbar';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './category.html',
   styleUrl: './category.scss',
 })
@@ -26,7 +27,7 @@ export class Category implements OnInit {
       titre: 'Inflation persistante : le pouvoir d’achat sous pression',
       resume:
         'Malgré un ralentissement annoncé, les ménages ressentent toujours une forte hausse des prix sur les produits essentiels.',
-      image: '/assets/images/inflation.jpg',
+      image: '/assets/images/inflation.png',
       contenu: '',
       categorie: { nom: 'Économie', slug: 'economie' },
       sousCategorie: 'Finance',

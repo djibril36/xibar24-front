@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 export type Theme = 'light' | 'dark';
@@ -6,38 +7,28 @@ export type Theme = 'light' | 'dark';
   providedIn: 'root'
 })
 export class ThemeService {
-
-  private readonly STORAGE_KEY =
-    'xibar-theme';
+  private readonly STORAGE_KEY = 'xibar-theme';
 
   initTheme(): void {
+    const savedTheme = localStorage.getItem(this.STORAGE_KEY);
 
-    const savedTheme =
-      (localStorage.getItem(this.STORAGE_KEY) as Theme)
-      || 'dark';
+    const theme: Theme =
+      savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme
+        : 'dark';
 
-    this.setTheme(savedTheme);
+    this.setTheme(theme);
   }
 
   setTheme(theme: Theme): void {
+    document.documentElement.setAttribute('data-theme', theme);
 
-    document.documentElement.setAttribute(
-      'data-theme',
-      theme
-    );
-
-    localStorage.setItem(
-      this.STORAGE_KEY,
-      theme
-    );
+    localStorage.setItem(this.STORAGE_KEY, theme);
   }
 
   toggleTheme(): Theme {
-
-    const nextTheme =
-      this.isDarkMode()
-        ? 'light'
-        : 'dark';
+    const nextTheme: Theme =
+      this.isDarkMode() ? 'light' : 'dark';
 
     this.setTheme(nextTheme);
 
@@ -45,18 +36,10 @@ export class ThemeService {
   }
 
   isDarkMode(): boolean {
-
-    return (
-      document.documentElement.getAttribute(
-        'data-theme'
-      ) === 'dark'
-    );
+    return document.documentElement.getAttribute('data-theme') === 'dark';
   }
 
   getCurrentTheme(): Theme {
-
-    return this.isDarkMode()
-      ? 'dark'
-      : 'light';
+    return this.isDarkMode() ? 'dark' : 'light';
   }
 }

@@ -1,122 +1,393 @@
-.navbar {
 
+:host {
+  display: block;
+  position: relative;
+  z-index: 999;
+}
+
+/* Barre de navigation */
+.navbar {
   position: sticky;
   top: 0;
   z-index: 999;
-
+  width: 100%;
   background: linear-gradient(
-    90deg,
-    #08132e,
-    #1f2d63
+    110deg,
+    #08132e 0%,
+    #111d42 55%,
+    #202c60 100%
   );
-
-  box-shadow: 0 3px 12px rgba(0,0,0,.3);
+  border-bottom: 1px solid rgba(143, 180, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
 }
 
-.top-theme {
-
-  padding: 8px 20px;
-
-  button {
-
-    border: none;
-    border-radius: 20px;
-
-    padding: 8px 15px;
-
-    cursor: pointer;
-
-    background: rgba(255,255,255,.15);
-    color: white;
-  }
-}
-
+/* Contenu principal */
 .navbar-content {
-
-  height: 120px;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100px;
+  margin: 0 auto;
+  padding: 8px 32px;
+  box-sizing: border-box;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-
-  padding: 0 50px;
+  gap: 24px;
 }
 
+/* Logo Xibar24 */
 .brand {
-
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 15px;
-
-  img {
-
-    width: 90px;
-    height: auto;
-  }
+  min-width: 0;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-.brand-text {
+.brand img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
 
+.brand:hover img {
+  transform: scale(1.05);
+}
+
+/* Identité textuelle, si réactivée dans le HTML */
+.brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 2px;
 }
 
 .site-name {
-
-  color: white;
-
-  font-size: 28px;
-  font-weight: 700;
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 1.1px;
 }
 
 .slogan {
-
-  color: #8fb4ff;
-
-  font-size: 18px;
+  color: #9bbcff;
+  font-size: 12px;
+  font-weight: 500;
   font-style: italic;
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
+/* Navigation à droite */
 .actions {
-
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-left: auto;
+  margin-right: 16px;
 }
 
+/* Bouton Rubriques : encadré permanent */
 .categories-btn {
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  white-space: nowrap;
+  padding: 12px 15px;
+  /* Encadré visible même sans survol */
+  border: 1px solid rgba(143, 180, 255, 0.35);
+  border-radius: 9px;
   background: transparent;
+  color: #f4f6ff;
 
-  color: white;
-
-  border: none;
-
-  font-size: 22px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
 
   cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
+/* Survol : conserve le même encadré */
+.categories-btn:hover {
+  border: 1px solid rgba(143, 180, 255, 0.35);
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-1px);
+}
+
+/* Image du chevron */
+.chevron {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.categories-btn:hover .chevron {
+  transform: translateY(2px);
+}
+
+/* Info en continu */
 .live-stream {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
 
-  background: rgba(255,145,0,.15);
+  padding: 12px 19px;
+  border: 1px solid rgba(255, 145, 0, 0.24);
+  border-radius: 9px;
 
-  color: #ff8c00;
-
-  padding: 12px 28px;
-
-  border-radius: 25px;
+  background: rgba(255, 145, 0, 0.09);
+  color: #ffb15c;
 
   text-decoration: none;
+  font-size: 15px;
+  font-weight: 650;
+  white-space: nowrap;
 
-  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.live-badge {
+.live-stream:hover {
+  background: rgba(255, 145, 0, 0.17);
+  border-color: rgba(255, 145, 0, 0.48);
+  transform: translateY(-1px);
+}
 
-  color: #ff4d4d;
+/* Point rouge du direct */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #ff4d55;
+  box-shadow: 0 0 9px rgba(255, 77, 85, 0.55);
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
 
-  font-size: 28px;
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 9px rgba(255, 77, 85, 0.55);
+  }
 
-  font-weight: 700;
+  50% {
+    opacity: 0.65;
+    box-shadow: 0 0 3px rgba(255, 77, 85, 0.25);
+  }
+}
+
+/* Bouton de thème */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.17);
+  transform: rotate(12deg);
+}
+
+/* Tablettes */
+@media (max-width: 800px) {
+  .navbar-content {
+    min-height: 82px;
+    padding: 8px 18px;
+    gap: 12px;
+  }
+
+  .brand img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .brand-text {
+    gap: 2px;
+  }
+
+  .site-name {
+    font-size: 20px;
+  }
+
+  .slogan {
+    font-size: 11px;
+  }
+
+  .actions {
+    gap: 6px;
+    margin-right: 6px;
+  }
+
+  .categories-btn {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .live-stream {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .theme-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 520px) {
+  .navbar-content {
+    min-height: 70px;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .site-name {
+    font-size: 17px;
+    letter-spacing: 0.5px;
+  }
+
+  .slogan {
+    font-size: 9px;
+  }
+
+  .actions {
+    gap: 4px;
+    margin-right: 0;
+  }
+
+  .categories-btn {
+    gap: 4px;
+    padding: 8px 7px;
+    font-size: 12px;
+  }
+
+  .chevron {
+    width: 12px;
+    height: 12px;
+  }
+
+  .live-stream {
+    gap: 5px;
+    padding: 8px 7px;
+    font-size: 11px;
+  }
+
+  .live-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .theme-btn {
+    width: 31px;
+    height: 31px;
+    font-size: 14px;
+  }
+}
+
+/* Très petits mobiles */
+@media (max-width: 360px) {
+  .navbar-content {
+    padding-right: 8px;
+    padding-left: 8px;
+    gap: 5px;
+  }
+
+  .brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .site-name {
+    font-size: 15px;
+  }
+
+  .slogan {
+    font-size: 8px;
+  }
+
+  .categories-btn {
+    gap: 3px;
+    padding: 7px 6px;
+    font-size: 11px;
+  }
+
+  .chevron {
+    width: 10px;
+    height: 10px;
+  }
+
+  .live-stream {
+    font-size: 10px;
+    padding: 7px 5px;
+  }
+
+  .theme-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+/* Accessibilité : réduire les animations si nécessaire */
+@media (prefers-reduced-motion: reduce) {
+  .brand img,
+  .categories-btn,
+  .chevron,
+  .live-stream,
+  .theme-btn {
+    transition: none;
+  }
+
+  .live-dot {
+    animation: none;
+  }
 }

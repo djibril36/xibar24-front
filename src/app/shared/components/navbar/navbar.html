@@ -1,62 +1,45 @@
 <header class="navbar">
 
- <div class="top-theme">
-
-  <button
-    class="theme-btn"
-    (click)="toggleTheme()">
-
-    @if (darkMode) {
-      ☀️
-    } @else {
-      🌙
-    }
-
-  </button>
-
-</div>
-
   <div class="navbar-content">
 
-    <div class="brand">
+    <!-- Logo et identité -->
+    <a class="brand" routerLink="/" aria-label="Accueil Xibar24">
 
-      <img
-        src="assets/logo-xibar24.png"
-        alt="Xibar24">
+      <img src="assets/images/logo.svg" alt="Xibar24" />
 
-      <div class="brand-text">
+      <!-- <div class="brand-text">
+        <span class="site-name">XIBAR24</span>
+        <span class="slogan">xamlé ak yegglé</span>
+      </div> -->
 
-        <span class="site-name">
-          XIBAR24
-        </span>
+    </a>
 
-        <span class="slogan">
-          xamlé ak yegglé
-        </span>
+    <!-- Navigation -->
+    <nav class="actions" aria-label="Navigation principale">
 
-      </div>
-
-    </div>
-
-    <div class="actions">
-
-      <button
-        class="categories-btn"
-        (click)="openMenu()">
-        Rubriques ▼
+      <button type="button" class="categories-btn" (click)="openMenu()">
+        <span>Rubriques</span>
+        <img class="chevron" src="/assets/images/chevron.png" alt="" aria-hidden="true">
       </button>
-
-      <a
-        routerLink="/live"
-        class="live-stream">
+      <a routerLink="/live" class="live-stream">
+        <span class="live-dot"></span>
         Info en continu
       </a>
 
-      <div class="live-badge">
-        🔴 LIVE
-      </div>
+    </nav>
 
-    </div>
+    <!-- Changement de thème -->
+    <button type="button" class="theme-btn" (click)="toggleTheme()"
+      [attr.aria-label]="darkMode ? 'Activer le thème clair' : 'Activer le thème sombre'"
+      [title]="darkMode ? 'Thème clair' : 'Thème sombre'">
+
+      @if (darkMode) {
+      ☀️
+      } @else {
+      🌙
+      }
+
+    </button>
 
   </div>
 
