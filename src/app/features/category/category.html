@@ -1,6 +1,11 @@
+
 <section class="category-page">
   <header class="category-header">
-    <h1>{{ categoryTitle }}</h1>
+    <div class="category-header-content">
+      <span class="category-eyebrow">XIBAR24 · ACTUALITÉS</span>
+      <h1>{{ categoryTitle }}</h1>
+      <span class="category-title-line"></span>
+    </div>
   </header>
 
   <div class="category-content">
@@ -10,8 +15,7 @@
           type="button"
           class="filter-button"
           [class.active]="selectedSubcategory === 'Tout'"
-          (click)="selectSubcategory('Tout')"
-        >
+          (click)="selectSubcategory('Tout')">
           Tout
         </button>
       }
@@ -21,8 +25,7 @@
           type="button"
           class="filter-button"
           [class.active]="selectedSubcategory === subcategory"
-          (click)="selectSubcategory(subcategory)"
-        >
+          (click)="selectSubcategory(subcategory)">
           @if (subcategory === 'Finance') {
             <span class="filter-icon">📈</span>
           } @else if (subcategory === 'Emploi') {
@@ -42,13 +45,11 @@
               <img
                 [src]="getImageUrl(article.image)"
                 [alt]="article.titre"
-                loading="lazy"
-              />
+                loading="lazy">
             </div>
 
             <div class="article-content">
               <h2>{{ article.titre }}</h2>
-
               <p>{{ article.resume }}</p>
 
               @if (article.datePublication || article.date) {
