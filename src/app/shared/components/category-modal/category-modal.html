@@ -1,1 +1,50 @@
-<p>category-modal works!</p>
+
+<div class="overlay" (click)="closeModal()">
+  <div
+    class="modal-container"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="category-modal-title"
+    (click)="$event.stopPropagation()">
+
+    <div class="header">
+      <h2 id="category-modal-title">Rubriques</h2>
+
+      <button
+        type="button"
+        class="close-btn"
+        aria-label="Fermer la fenêtre"
+        (click)="closeModal()">
+        ✕
+      </button>
+    </div>
+
+    <div class="grid">
+      @for (category of categories; track category.id) {
+        <button
+          type="button"
+          class="card"
+          (click)="openCategory(category)"
+          [attr.aria-label]="'Ouvrir la rubrique ' + category.libelle">
+
+          <img
+            [src]="category.image"
+            [alt]="category.libelle"
+            loading="lazy"
+            (error)="onImageError(category)">
+
+          <div class="category-label">
+            <span class="icon" aria-hidden="true">
+              {{ category.icone }}
+            </span>
+
+            <span class="label">
+              {{ category.libelle }}
+            </span>
+          </div>
+        </button>
+      }
+    </div>
+
+  </div>
+</div>

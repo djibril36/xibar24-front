@@ -1,1 +1,73 @@
-<p>category works!</p>
+
+<section class="category-page">
+  <header class="category-header">
+    <h1>{{ categoryTitle }}</h1>
+  </header>
+
+  <div class="category-content">
+    <nav class="subcategory-filters" aria-label="Filtrer les articles">
+      @if (subcategories.length > 1) {
+        <button
+          type="button"
+          class="filter-button"
+          [class.active]="selectedSubcategory === 'Tout'"
+          (click)="selectSubcategory('Tout')"
+        >
+          Tout
+        </button>
+      }
+
+      @for (subcategory of subcategories; track subcategory) {
+        <button
+          type="button"
+          class="filter-button"
+          [class.active]="selectedSubcategory === subcategory"
+          (click)="selectSubcategory(subcategory)"
+        >
+          @if (subcategory === 'Finance') {
+            <span class="filter-icon">📈</span>
+          } @else if (subcategory === 'Emploi') {
+            <span class="filter-icon">💼</span>
+          }
+
+          {{ subcategory }}
+        </button>
+      }
+    </nav>
+
+    @if (filteredArticles.length > 0) {
+      <div class="articles-grid">
+        @for (article of filteredArticles; track article.id) {
+          <article class="article-card">
+            <div class="article-image">
+              <img
+                [src]="getImageUrl(article.image)"
+                [alt]="article.titre"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="article-content">
+              <h2>{{ article.titre }}</h2>
+
+              <p>{{ article.resume }}</p>
+
+              @if (article.datePublication || article.date) {
+                <time>
+                  {{ article.datePublication || article.date }}
+                </time>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    } @else {
+      <div class="empty-state">
+        <h2>Aucun article disponible</h2>
+        <p>
+          Les articles de cette rubrique seront bientôt disponibles.
+        </p>
+      </div>
+    }
+  </div>
+</section>

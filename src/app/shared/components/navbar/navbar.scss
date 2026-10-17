@@ -1,0 +1,122 @@
+.navbar {
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: linear-gradient(
+    90deg,
+    #08132e,
+    #1f2d63
+  );
+
+  box-shadow: 0 3px 12px rgba(0,0,0,.3);
+}
+
+.top-theme {
+
+  padding: 8px 20px;
+
+  button {
+
+    border: none;
+    border-radius: 20px;
+
+    padding: 8px 15px;
+
+    cursor: pointer;
+
+    background: rgba(255,255,255,.15);
+    color: white;
+  }
+}
+
+.navbar-content {
+
+  height: 120px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 50px;
+}
+
+.brand {
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  img {
+
+    width: 90px;
+    height: auto;
+  }
+}
+
+.brand-text {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.site-name {
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.slogan {
+
+  color: #8fb4ff;
+
+  font-size: 18px;
+  font-style: italic;
+}
+
+.actions {
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.categories-btn {
+
+  background: transparent;
+
+  color: white;
+
+  border: none;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.live-stream {
+
+  background: rgba(255,145,0,.15);
+
+  color: #ff8c00;
+
+  padding: 12px 28px;
+
+  border-radius: 25px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.live-badge {
+
+  color: #ff4d4d;
+
+  font-size: 28px;
+
+  font-weight: 700;
+}

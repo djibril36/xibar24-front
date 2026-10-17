@@ -1,1 +1,11 @@
-<p>home works!</p>
+<app-navbar
+(openCategories)="showCategories=true">
+</app-navbar>
+
+@if(showCategories){
+
+<app-category-modal
+(close)="showCategories=false">
+</app-category-modal>
+
+}

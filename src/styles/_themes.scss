@@ -1,0 +1,56 @@
+/* =========================
+   THEME CLAIR
+========================= */
+
+:root {
+
+  --bg-primary: #eef1f6;
+  --bg-secondary: #f8fafc;
+
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f8fc;
+
+  --text-primary: #102544;
+  --text-secondary: #69768c;
+
+  --border-color: #dde3ec;
+
+  --accent: #ff7a00;
+  --accent-soft: #f7ebe3;
+
+  --navbar-gradient:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #e9edf8
+    );
+}
+
+
+/* =========================
+   THEME SOMBRE
+========================= */
+
+[data-theme="dark"] {
+
+  --bg-primary: #06133a;
+  --bg-secondary: #081b4d;
+
+  --bg-card: #1c2942;
+  --bg-card-hover: #263754;
+
+  --text-primary: #ffffff;
+  --text-secondary: #b7c1d5;
+
+  --border-color: #2c3d5f;
+
+  --accent: #ff7a00;
+  --accent-soft: rgba(255,122,0,.15);
+
+  --navbar-gradient:
+    linear-gradient(
+      90deg,
+      #07153b,
+      #102b72
+    );
+}

@@ -1,1 +1,63 @@
-<p>navbar works!</p>
+<header class="navbar">
+
+ <div class="top-theme">
+
+  <button
+    class="theme-btn"
+    (click)="toggleTheme()">
+
+    @if (darkMode) {
+      ☀️
+    } @else {
+      🌙
+    }
+
+  </button>
+
+</div>
+
+  <div class="navbar-content">
+
+    <div class="brand">
+
+      <img
+        src="assets/logo-xibar24.png"
+        alt="Xibar24">
+
+      <div class="brand-text">
+
+        <span class="site-name">
+          XIBAR24
+        </span>
+
+        <span class="slogan">
+          xamlé ak yegglé
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="categories-btn"
+        (click)="openMenu()">
+        Rubriques ▼
+      </button>
+
+      <a
+        routerLink="/live"
+        class="live-stream">
+        Info en continu
+      </a>
+
+      <div class="live-badge">
+        🔴 LIVE
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
