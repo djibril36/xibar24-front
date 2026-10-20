@@ -1,4 +1,3 @@
-
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -18,60 +17,15 @@ export class CategoryModalComponent {
   constructor(private readonly router: Router) {}
 
   readonly categories: Categorie[] = [
-    {
-      id: 1,
-      libelle: 'Afrique',
-      icone: '🌍',
-      image: 'assets/rubriques/afrique.png'
-    },
-    {
-      id: 2,
-      libelle: 'Internationale',
-      icone: '🌐',
-      image: 'assets/rubriques/internationale.png'
-    },
-    {
-      id: 3,
-      libelle: 'Politique',
-      icone: '🏛️',
-      image: 'assets/rubriques/politique.png'
-    },
-    {
-      id: 4,
-      libelle: 'Économie',
-      icone: '💰',
-      image: 'assets/rubriques/economie.png'
-    },
-    {
-      id: 5,
-      libelle: 'Société',
-      icone: '👥',
-      image: 'assets/rubriques/societe.png'
-    },
-    {
-      id: 6,
-      libelle: 'Culture',
-      icone: '🎭',
-      image: 'assets/rubriques/culture.png'
-    },
-    {
-      id: 7,
-      libelle: 'Sport',
-      icone: '⚽',
-      image: 'assets/rubriques/lutte.png'
-    },
-    {
-      id: 8,
-      libelle: 'Faits divers',
-      icone: '🚨',
-      image: 'assets/rubriques/xalass.png'
-    },
-    {
-      id: 9,
-      libelle: 'Tech & Science',
-      icone: '🔬',
-      image: 'assets/rubriques/tech.png'
-    }
+    { id: 1, libelle: 'Afrique',       icone: '🌍', image: 'assets/rubriques/afrique.png' },
+    { id: 2, libelle: 'Internationale', icone: '🌐', image: 'assets/rubriques/internationale.png' },
+    { id: 3, libelle: 'Politique',     icone: '🏛️', image: 'assets/rubriques/politique.png' },
+    { id: 4, libelle: 'Économie',      icone: '💰', image: 'assets/rubriques/economie.png' },
+    { id: 5, libelle: 'Société',       icone: '👥', image: 'assets/rubriques/societe.png' },
+    { id: 6, libelle: 'Culture',       icone: '🎭', image: 'assets/rubriques/culture.png' },
+    { id: 7, libelle: 'Sport',         icone: '⚽', image: 'assets/rubriques/lutte.png' },
+    { id: 8, libelle: 'Faits divers',  icone: '🚨', image: 'assets/rubriques/xalass.png' },
+    { id: 9, libelle: 'Tech & Science', icone: '🔬', image: 'assets/rubriques/tech.png' },
   ];
 
   closeModal(): void {
@@ -81,9 +35,9 @@ export class CategoryModalComponent {
   openCategory(category: Categorie): void {
     const slug = this.createSlug(category.libelle);
 
-    this.closeModal();
-
-    void this.router.navigate(['/categorie', slug]);
+    void this.router
+      .navigate(['/categorie', slug])
+      .finally(() => this.closeModal());
   }
 
   private createSlug(label: string): string {

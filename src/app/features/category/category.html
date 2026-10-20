@@ -1,4 +1,3 @@
-
 <section class="category-page">
   <header class="category-header">
     <div class="category-header-content">
@@ -30,6 +29,44 @@
             <span class="filter-icon">📈</span>
           } @else if (subcategory === 'Emploi') {
             <span class="filter-icon">💼</span>
+          } @else if (subcategory === 'Politique') {
+            <span class="filter-icon">🏛️</span>
+          } @else if (subcategory === 'Sécurité') {
+            <span class="filter-icon">🛡️</span>
+          } @else if (subcategory === 'Économie') {
+            <span class="filter-icon">💰</span>
+          } @else if (subcategory === 'États-Unis') {
+            <span class="filter-icon">🇺🇸</span>
+          } @else if (subcategory === 'Europe') {
+            <span class="filter-icon">🇪🇺</span>
+          } @else if (subcategory === 'Institutions') {
+            <span class="filter-icon">⚖️</span>
+          } @else if (subcategory === 'Élections') {
+            <span class="filter-icon">🗳️</span>
+          } @else if (subcategory === 'Éducation') {
+            <span class="filter-icon">🎓</span>
+          } @else if (subcategory === 'Santé') {
+            <span class="filter-icon">🏥</span>
+          } @else if (subcategory === 'Cinéma') {
+            <span class="filter-icon">🎬</span>
+          } @else if (subcategory === 'Musique') {
+            <span class="filter-icon">🎵</span>
+          } @else if (subcategory === 'Lutte') {
+            <span class="filter-icon">🤼</span>
+          } @else if (subcategory === 'Football') {
+            <span class="filter-icon">⚽</span>
+          } @else if (subcategory === 'Basket') {
+            <span class="filter-icon">🏀</span>
+          } @else if (subcategory === 'Enquête') {
+            <span class="filter-icon">🔎</span>
+          } @else if (subcategory === 'Route') {
+            <span class="filter-icon">🛣️</span>
+          } @else if (subcategory === 'Intelligence artificielle') {
+            <span class="filter-icon">🤖</span>
+          } @else if (subcategory === 'Espace') {
+            <span class="filter-icon">🚀</span>
+          } @else if (subcategory === 'Cybersécurité') {
+            <span class="filter-icon">🔐</span>
           }
 
           {{ subcategory }}
@@ -40,33 +77,42 @@
     @if (filteredArticles.length > 0) {
       <div class="articles-grid">
         @for (article of filteredArticles; track article.id) {
-          <article class="article-card">
+          <article class="article-card" tabindex="0">
             <div class="article-image">
               <img
                 [src]="getImageUrl(article.image)"
                 [alt]="article.titre"
-                loading="lazy">
+                loading="lazy"
+                (error)="getImageUrl('/assets/images/article-placeholder.jpg')">
+
+              @if (article.sousCategorie) {
+                <span class="article-badge">{{ article.sousCategorie }}</span>
+              }
             </div>
 
             <div class="article-content">
-              <h2>{{ article.titre }}</h2>
-              <p>{{ article.resume }}</p>
+              <h2 class="article-title">{{ article.titre }}</h2>
 
-              @if (article.datePublication || article.date) {
-                <time>
-                  {{ article.datePublication || article.date }}
-                </time>
-              }
+              <p class="article-resume">{{ article.resume }}</p>
+
+              <footer class="article-footer">
+                @if (article.datePublication || article.date) {
+                  <time class="article-date" [attr.datetime]="article.datePublication || article.date">
+                    📅 {{ article.datePublication || article.date }}
+                  </time>
+                }
+
+                <span class="article-readmore" aria-hidden="true">Lire →</span>
+              </footer>
             </div>
           </article>
         }
       </div>
     } @else {
       <div class="empty-state">
+        <div class="empty-icon" aria-hidden="true">📭</div>
         <h2>Aucun article disponible</h2>
-        <p>
-          Les articles de cette rubrique seront bientôt disponibles.
-        </p>
+        <p>Les articles de cette rubrique seront bientôt disponibles.</p>
       </div>
     }
   </div>

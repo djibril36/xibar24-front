@@ -7,8 +7,7 @@ import { CategoryModalComponent } from '../../shared/components/category-modal/c
   selector: 'app-home',
   standalone: true,
   imports: [
-    CommonModule,
-    NavbarComponent
+    CommonModule
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss'
