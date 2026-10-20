@@ -186,7 +186,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Sommet de l’Union africaine : sécurité et commerce au menu',
       resume:
         'Les chefs d’État réunis à Addis-Abeba tentent d’accélérer la mise en œuvre de la ZLECAf.',
-      image: '/assets/images/afrique.png',
+      image: '/assets/images/sommet-ua.jpeg',
       contenu: '',
       categorie: { nom: 'Afrique', slug: 'afrique' },
       sousCategorie: 'Politique',
@@ -205,7 +205,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Sahel : la coopération régionale à l’épreuve du terrain',
       resume:
         'Les forces conjointes multiplient les opérations malgré des moyens logistiques limités.',
-      image: '/assets/images/sahel.jpg',
+      image: '/assets/images/afrique-secu.jpg',
       contenu: '',
       categorie: { nom: 'Afrique', slug: 'afrique' },
       sousCategorie: 'Sécurité',
@@ -224,7 +224,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Cacao : les cours mondiaux atteignent des sommets',
       resume:
         'Les producteurs ouest-africains négocient âprement les prix face à une demande en hausse.',
-      image: '/assets/images/cacao.jpg',
+      image: '/assets/images/cacao.jpeg',
       contenu: '',
       categorie: { nom: 'Afrique', slug: 'afrique' },
       sousCategorie: 'Économie',
@@ -245,7 +245,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'États-Unis : l’économie face au spectre d’un shutdown prolongé',
       resume:
         'Les négociations budgétaires patinent, menaçant des milliers de fonctionnaires fédéraux.',
-      image: '/assets/images/usa.jpg',
+      image: '/assets/images/usa.jpeg',
       contenu: '',
       categorie: { nom: 'Internationale', slug: 'internationale' },
       sousCategorie: 'États-Unis',
@@ -264,7 +264,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Europe : la question migratoire divise les Vingt-Sept',
       resume:
         'Un sommet extraordinaire est convoqué pour tenter d’harmoniser les politiques d’accueil.',
-      image: '/assets/images/europe.jpg',
+      image: '/assets/images/euro.jpeg',
       contenu: '',
       categorie: { nom: 'Internationale', slug: 'internationale' },
       sousCategorie: 'Europe',
@@ -325,7 +325,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Rentrée scolaire : les établissements sous tension',
       resume:
         'Manque d’enseignants, classes surchargées et infrastructures dégradées dans plusieurs régions.',
-      image: '/assets/images/societe.png',
+      image: '/assets/images/education.jpg',
       contenu: '',
       categorie: { nom: 'Société', slug: 'societe' },
       sousCategorie: 'Éducation',
@@ -344,7 +344,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Santé publique : la couverture vaccinale progresse',
       resume:
         'Les campagnes de sensibilisation portent leurs fruits, mais des disparités subsistent.',
-      image: '/assets/images/sante.jpg',
+      image: '/assets/images/vaccination.jpg',
       contenu: '',
       categorie: { nom: 'Société', slug: 'societe' },
       sousCategorie: 'Santé',
@@ -365,7 +365,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Festival international du film : une édition record',
       resume:
         'Plus de 80 films projetés et une fréquentation en hausse de 30 % par rapport à 2025.',
-      image: '/assets/images/culture.png',
+      image: '/assets/images/mamebety.jpeg',
       contenu: '',
       categorie: { nom: 'Culture', slug: 'culture' },
       sousCategorie: 'Cinéma',
@@ -384,7 +384,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Musique : la nouvelle scène africaine s’exporte',
       resume:
         'Les artistes du continent enchaînent les tournées et les collaborations internationales.',
-      image: '/assets/images/musique.jpg',
+      image: '/assets/images/you.jpeg',
       contenu: '',
       categorie: { nom: 'Culture', slug: 'culture' },
       sousCategorie: 'Musique',
@@ -405,7 +405,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Lutte : les champions se préparent pour la saison',
       resume:
         'Les écuries rivalisent d’intensité à l’approche des grands tournois nationaux.',
-      image: '/assets/images/lutte.png',
+      image: '/assets/images/franc.jpeg',
       contenu: '',
       categorie: { nom: 'Sport', slug: 'sport' },
       sousCategorie: 'Lutte',
@@ -424,7 +424,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Football : le championnat reprend ses droits',
       resume:
         'Les cadors entament la saison avec des effectifs renforcés et des ambitions affichées.',
-      image: '/assets/images/football.jpg',
+      image: '/assets/images/foot.jpg',
       contenu: '',
       categorie: { nom: 'Sport', slug: 'sport' },
       sousCategorie: 'Football',
@@ -443,7 +443,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Basket : la sélection nationale vise le podium',
       resume:
         'Après une préparation intense, le groupe affiche une confiance mesurée mais réelle.',
-      image: '/assets/images/basket.jpg',
+      image: '/assets/images/basket.jpeg',
       contenu: '',
       categorie: { nom: 'Sport', slug: 'sport' },
       sousCategorie: 'Basket',
@@ -464,7 +464,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Xalass : un fait divers qui secoue le quartier',
       resume:
         'Les autorités enquêtent sur les circonstances exactes de l’incident survenu ce week-end.',
-      image: '/assets/images/xalass.png',
+      image: '/assets/images/route.jpeg',
       contenu: '',
       categorie: { nom: 'Faits divers', slug: 'faits-divers' },
       sousCategorie: 'Enquête',
@@ -483,7 +483,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Accident sur la route nationale : le trafic perturbé',
       resume:
         'Les secours sont intervenus rapidement, mais la circulation reste difficile dans les deux sens.',
-      image: '/assets/images/accident.jpg',
+      image: '/assets/images/accident.jpeg',
       contenu: '',
       categorie: { nom: 'Faits divers', slug: 'faits-divers' },
       sousCategorie: 'Route',
@@ -504,7 +504,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Intelligence artificielle : l’Afrique accélère sa stratégie',
       resume:
         'Plusieurs pays lancent des programmes nationaux pour former et attirer les talents du numérique.',
-      image: '/assets/images/tech.png',
+      image: '/assets/images/ia.jpeg',
       contenu: '',
       categorie: { nom: 'Tech & Science', slug: 'tech-science' },
       sousCategorie: 'Intelligence artificielle',
@@ -523,7 +523,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Espace : une nouvelle mission d’observation lancée',
       resume:
         'Le satellite doit améliorer le suivi des ressources en eau et des zones arides.',
-      image: '/assets/images/espace.jpg',
+      image: '/assets/images/espace.jpeg',
       contenu: '',
       categorie: { nom: 'Tech & Science', slug: 'tech-science' },
       sousCategorie: 'Espace',
@@ -542,7 +542,7 @@ export class Category implements OnInit, OnDestroy {
       titre: 'Cybersécurité : les entreprises face à la recrudescence des attaques',
       resume:
         'Les experts appellent à renforcer la formation des équipes et la surveillance des réseaux.',
-      image: '/assets/images/cyber.jpg',
+      image: '/assets/images/secu.jpeg',
       contenu: '',
       categorie: { nom: 'Tech & Science', slug: 'tech-science' },
       sousCategorie: 'Cybersécurité',
