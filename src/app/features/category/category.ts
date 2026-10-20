@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router'; // 👈 Ajout de RouterLink
 import { Subject, takeUntil } from 'rxjs';
 import { Article } from '../../core/models/article.model';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [],
+  imports: [RouterLink], // 👈 Ajout dans les imports du composant
   templateUrl: './category.html',
   styleUrl: './category.scss',
 })
@@ -118,7 +118,6 @@ export class Category implements OnInit, OnDestroy {
 
   // ─────────────────────────────────────────────────────────────
   // Articles de démonstration
-  // À remplacer par un ArticleService branché sur le backend.
   // ─────────────────────────────────────────────────────────────
   private readonly demoArticles: Article[] = [
     // ═══════════════ ÉCONOMIE ═══════════════

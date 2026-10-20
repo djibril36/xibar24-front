@@ -77,7 +77,8 @@
     @if (filteredArticles.length > 0) {
       <div class="articles-grid">
         @for (article of filteredArticles; track article.id) {
-          <article class="article-card" tabindex="0">
+          <!-- 👇 Remplacé <article> par <a> et ajouté routerLink -->
+          <a class="article-card" [routerLink]="['/article', article.id]">
             <div class="article-image">
               <img
                 [src]="getImageUrl(article.image)"
@@ -105,7 +106,7 @@
                 <span class="article-readmore" aria-hidden="true">Lire →</span>
               </footer>
             </div>
-          </article>
+          </a>
         }
       </div>
     } @else {

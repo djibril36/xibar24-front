@@ -1,1 +1,82 @@
-<p>article works!</p>
+@if (isLoading) {
+  <div class="loading-state">
+    <div class="spinner"></div>
+    <p>Chargement de l'article...</p>
+  </div>
+} @else if (article) {
+  <article class="article-page">
+
+    <nav class="article-breadcrumb">
+      <a routerLink="/">Accueil</a>
+      <span class="separator">/</span>
+      <a [routerLink]="['/categorie', article.categorie.slug]">{{ article.categorie.nom }}</a>
+      <span class="separator">/</span>
+      <span class="current">Détail</span>
+    </nav>
+
+    <header class="article-header">
+      <div class="article-meta-top">
+        @if (article.choixRedaction) {
+          <span class="badge-featured">⭐ Choix de la rédaction</span>
+        }
+        <span class="badge-category">{{ article.sousCategorie }}</span>
+      </div>
+
+      <h1 class="article-title">{{ article.titre }}</h1>
+      <p class="article-excerpt">{{ article.resume }}</p>
+
+      <div class="article-author-box">
+        @if (isAuteurObjet(article.auteur)) {
+          @if (article.auteur.avatar) {
+            <img [src]="article.auteur.avatar" [alt]="article.auteur.nom" class="author-avatar">
+          }
+          <div class="author-info">
+            <span class="author-name">{{ article.auteur.nom }}</span>
+            <span class="article-date">Publié le {{ article.datePublication | date:'dd MMMM yyyy' }}</span>
+          </div>
+        } @else if (article.auteur) {
+          <div class="author-info">
+            <span class="author-name">{{ article.auteur }}</span>
+            <span class="article-date">Publié le {{ article.datePublication | date:'dd MMMM yyyy' }}</span>
+          </div>
+        } @else {
+          <div class="author-info">
+            <span class="author-name">La Rédaction</span>
+            <span class="article-date">Publié le {{ article.datePublication | date:'dd MMMM yyyy' }}</span>
+          </div>
+        }
+      </div>
+    </header>
+
+    <!-- 👇 Ajout de la classe "cover-image" -->
+    <figure class="article-cover">
+      <img [src]="getImageUrl(article.image)" [alt]="article.titre" class="cover-image">
+      <figcaption>Xibar24</figcaption>
+    </figure>
+
+    <div class="article-body">
+      <!-- 👇 La classe "rich-text" va styliser les <p> et <h3> générés -->
+      <div class="rich-text" [innerHTML]="article.contenu"></div>
+
+      <div class="article-share">
+        <span>Partager cet article :</span>
+        <button class="share-btn" aria-label="Partager sur Facebook">FB</button>
+        <button class="share-btn" aria-label="Partager sur Twitter">X</button>
+        <button class="share-btn" aria-label="Partager sur WhatsApp">WA</button>
+      </div>
+    </div>
+
+    <footer class="article-footer-nav">
+      <a [routerLink]="['/categorie', article.categorie.slug]" class="btn-back">
+        ← Retour aux actualités {{ article.categorie.nom }}
+      </a>
+    </footer>
+
+  </article>
+} @else {
+  <div class="error-state">
+    <h2>Article introuvable</h2>
+    <p>L'article que vous cherchez n'existe pas ou a été supprimé.</p>
+    <a routerLink="/" class="btn-home">Retour à l'accueil</a>
+  </div>
+}

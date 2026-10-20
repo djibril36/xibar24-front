@@ -15,12 +15,12 @@ export const routes: Routes = [
         .then(m => m.Category)
   },
 
-  {
-    path: 'article/:id',
-    loadComponent: () =>
-      import('./features/article/article')
-        .then(m => m.Article)
-  },
+ {
+  path: 'article/:id',
+  loadComponent: () =>
+    import('./features/article/article')
+      .then(m => m.ArticleComponent)   // ← ArticleComponent au lieu de Article
+},
 
   {
     path: 'live',
