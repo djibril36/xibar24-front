@@ -7,6 +7,7 @@ import {
 
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../../core/services/theme';
+import { RouterLink, Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class NavbarComponent implements OnInit {
   darkMode = false;
 
   constructor(
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +44,13 @@ export class NavbarComponent implements OnInit {
   openMenu(): void {
 
     this.openCategories.emit();
+  }
+
+   onBrandClick(event: MouseEvent): void {
+    event.preventDefault();
+
+    this.router.navigateByUrl('/').then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }

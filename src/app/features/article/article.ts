@@ -100,6 +100,6 @@ export class ArticleComponent implements OnInit {
 
       this.cdr.markForCheck();
       this.cdr.detectChanges();
-    }, 300);
+    }, 1000);
   }
 }

@@ -77,20 +77,27 @@
     @if (filteredArticles.length > 0) {
       <div class="articles-grid">
         @for (article of filteredArticles; track article.id) {
-          <!-- 👇 Remplacé <article> par <a> et ajouté routerLink -->
-          <a class="article-card" [routerLink]="['/article', article.id]">
-            <div class="article-image">
-              <img
-                [src]="getImageUrl(article.image)"
-                [alt]="article.titre"
-                loading="lazy"
-                (error)="getImageUrl('/assets/images/article-placeholder.jpg')">
+          <div class="article-card">
 
-              @if (article.sousCategorie) {
-                <span class="article-badge">{{ article.sousCategorie }}</span>
-              }
-            </div>
+            <!-- Seule l'image est un lien vers le détail de l'article -->
+            <a
+              class="article-image-link"
+              [routerLink]="['/article', article.id]"
+              [attr.aria-label]="'Lire l\'article : ' + article.titre">
+              <div class="article-image">
+                <img
+                  [src]="getImageUrl(article.image)"
+                  [alt]="article.titre"
+                  loading="lazy"
+                  (error)="getImageUrl('/assets/images/article-placeholder.jpg')">
 
+                @if (article.sousCategorie) {
+                  <span class="article-badge">{{ article.sousCategorie }}</span>
+                }
+              </div>
+            </a>
+
+            <!-- Texte : plus aucun lien, sélection désactivée -->
             <div class="article-content">
               <h2 class="article-title">{{ article.titre }}</h2>
 
@@ -106,7 +113,7 @@
                 <span class="article-readmore" aria-hidden="true">Lire →</span>
               </footer>
             </div>
-          </a>
+          </div>
         }
       </div>
     } @else {
