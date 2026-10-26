@@ -1,0 +1,38 @@
+<div class="slider-container">
+  <!-- Bouton Précédent -->
+  <button class="nav-btn prev" type="button" (click)="scroll(-1)" aria-label="Précédent">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+
+  <div class="track" #track>
+    @for (article of articles; track article.id) {
+      <article class="article-card">
+        <!-- Image de fond -->
+        <img [src]="imageUrl(article.image)" [alt]="article.titre" class="bg-image" loading="lazy" />
+
+        <!-- Dégradé sombre pour lire le texte -->
+        <div class="overlay-gradient"></div>
+
+        <!-- Contenu (Badge + Titre + Lien) -->
+        <div class="card-content">
+          @if (article.categorie) {
+            <span class="badge-category">{{ categorieNom(article.categorie) }}</span>
+          }
+
+          <h2 class="card-title">{{ article.titre }}</h2>
+
+          <a href="javascript:void(0)" class="read-more-link">
+            Lire l'article <span class="arrow">→</span>
+          </a>
+        </div>
+      </article>
+    } @empty {
+      <p class="empty">Aucun article pour le moment.</p>
+    }
+  </div>
+
+  <!-- Bouton Suivant -->
+  <button class="nav-btn next" type="button" (click)="scroll(1)" aria-label="Suivant">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>

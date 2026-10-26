@@ -1,0 +1,117 @@
+<div class="home-wrapper">
+
+  <!-- 1. HERO SLIDER -->
+  <section class="hero-section">
+    <app-article-slider [articles]="articles" />
+  </section>
+
+  <!-- 2. BANNIÈRE SLOGAN -->
+  <section class="slogan-banner">
+    <div class="slogan-content">
+      <h2 class="slogan-title">Xamlé ak Yeglé</h2>
+      <p class="slogan-subtitle">Le savoir et la réflexion au cœur de l'actualité.</p>
+    </div>
+  </section>
+
+  <!-- 3. L'ESSENTIEL DU JOUR -->
+  <section class="section-container">
+    <h2 class="section-title"><span class="emoji">📌</span> L'essentiel du jour</h2>
+    <div class="essentiel-grid">
+      @for (item of essentielArticles; track item.id) {
+        <article class="essentiel-card">
+          <img [src]="item.image" [alt]="item.titre" class="card-image" loading="lazy" />
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <span class="badge">{{ item.categorie }}</span>
+            <h3 class="title">{{ item.titre }}</h3>
+          </div>
+          @if (item.isVideo) {
+            <button class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          }
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- 4. PUBLICITÉ -->
+  <section class="section-container ad-container">
+    <span class="ad-label">Publicité</span>
+    <div class="ad-banner">
+      <img src="https://placehold.co/970x250/1f2937/ffffff?text=Espace+Publicitaire" alt="Pub" />
+    </div>
+  </section>
+
+  <!-- 5. LES MINUTES XAMLÉ -->
+  <section class="section-container">
+    <h2 class="section-title"><span class="emoji">🧠</span> Les minutes xamlé</h2>
+    <div class="minutes-grid">
+      @for (item of minutesXamle; track item.id) {
+        <article class="minute-card">
+          <div class="image-wrapper">
+            <img [src]="item.image" [alt]="item.titre" loading="lazy" />
+          </div>
+          <h3 class="minute-title">{{ item.titre }}</h3>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- 6. DERNIÈRES ACTUALITÉS -->
+  <!-- 6. DERNIÈRES ACTUALITÉS & LI GEUNEU FESS -->
+  <section class="section-container">
+    <div class="news-layout">
+
+      <!-- Colonne de gauche : Dernières actualités -->
+      <div class="main-news-col">
+        <h2 class="section-title"><span class="emoji">📰</span> Dernières actualités</h2>
+        <div class="latest-news-grid">
+          @for (actu of dernieresActus; track actu.id) {
+            <article class="news-list-card">
+              <div class="news-img">
+                <img [src]="actu.image" [alt]="actu.titre" loading="lazy" />
+              </div>
+              <div class="news-info">
+                <span class="news-cat">{{ actu.categorie }}</span>
+                <h3 class="news-title">{{ actu.titre }}</h3>
+                <span class="news-date">{{ actu.date }}</span>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+
+      <!-- Colonne de droite : Li Geuneu Fess -->
+      <aside class="sidebar-col">
+        <div class="hot-news-widget">
+          <h2 class="sidebar-title">
+            <span class="flame">🔥</span>
+            <span class="wolof-title">Li Geuneu Fess <br><small>ci yéne kày yi</small></span>
+          </h2>
+          <ul class="hot-news-list">
+            @for (hot of hotNews; track hot.id) {
+              <li class="hot-item">
+                <span class="hot-time">{{ hot.time }}</span>
+                <h4 class="hot-title">{{ hot.titre }}</h4>
+              </li>
+            }
+          </ul>
+          <button class="btn-all-news">Voir tout le fil</button>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- 7. NEWSLETTER -->
+  <section class="newsletter-section">
+    <div class="newsletter-content">
+      <h2>Ne manquez rien de l'actualité</h2>
+      <p>Recevez l'essentiel de l'info et nos analyses directement dans votre boîte mail.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre adresse email" required />
+        <button type="button">S'abonner</button>
+      </form>
+    </div>
+  </section>
+
+</div>

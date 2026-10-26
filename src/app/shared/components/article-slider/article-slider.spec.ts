@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroSlider } from './hero-slider';
+import { ArticleSlider } from './article-slider';
 
 describe('HeroSlider', () => {
-  let component: HeroSlider;
-  let fixture: ComponentFixture<HeroSlider>;
+  let component: ArticleSlider;
+  let fixture: ComponentFixture<ArticleSlider>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroSlider],
+      imports: [ArticleSlider],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroSlider);
+    fixture = TestBed.createComponent(ArticleSlider);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
